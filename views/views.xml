@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_form_project_task_inherited" model="ir.ui.view">
+        <field name="name">task.project.fallowers.inher</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//header" position="inside">
+                <button string="Add Project Followers" type="object"
+                        class="oe_highlight" name="add_project_followers" />
+            </xpath>
+
+            <field name="user_id" position="replace"/>
+
+            <xpath expr="//field[@name='project_id']" position="after">
+                <label for="user_id"/>
+                <div>
+                    <field name="user_id" class="o_task_user_field oe_inline" options="{&quot;no_open&quot;: True}" />
+                    <button string="Clear" type="object"
+                            class="fa fa-arrow-left oe_link"
+                            name="clear_assigned_to"
+                            attrs="{'invisible': [('user_id', '=', False)]}" />
+                </div>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
