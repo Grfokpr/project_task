@@ -12,8 +12,6 @@
                         class="oe_highlight" name="add_project_followers" />
             </xpath>
 
-            <field name="user_id" position="replace"/>
-
             <xpath expr="//field[@name='project_id']" position="after">
                 <label for="user_id"/>
                 <div>
